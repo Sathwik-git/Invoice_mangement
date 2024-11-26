@@ -28,7 +28,7 @@ const FileUploader = () => {
       ];
       if (!allowedTypes.includes(selectedFile.type)) {
         alert("Only PDF, image files, and XLS formats are allowed");
-        event.target.value = ""; // Clear the invalid file
+        event.target.value = ""; 
         setFile(null);
         return;
       }
@@ -103,7 +103,7 @@ const FileUploader = () => {
             ) : (
               <>
                 <Upload className="mr-2 h-4 w-4" />
-                Upload and Extract
+                Upload
               </>
             )}
           </Button>
