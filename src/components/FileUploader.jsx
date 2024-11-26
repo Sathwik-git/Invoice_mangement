@@ -17,7 +17,22 @@ const FileUploader = () => {
 
   const handleFileChange = (event) => {
     if (event.target.files) {
-      setFile(event.target.files[0]);
+      const selectedFile = event.target.files[0];
+      const allowedTypes = [
+        "application/pdf",
+        "application/vnd.ms-excel",
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "image/png",
+        "image/jpeg",
+        "image/jpg",
+      ];
+      if (!allowedTypes.includes(selectedFile.type)) {
+        alert("Only PDF, image files, and XLS formats are allowed");
+        event.target.value = ""; // Clear the invalid file
+        setFile(null);
+        return;
+      }
+      setFile(selectedFile);
     }
   };
 
